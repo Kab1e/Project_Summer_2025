@@ -1,6 +1,9 @@
 import yfinance as yf
 import pandas as pd
 from datetime import datetime, timedelta
+from functools import lru_cache
+
+lru_cache(maxsize=32)  
 
 # Part 2 of Project IS 430:
 
