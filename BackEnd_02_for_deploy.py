@@ -11,7 +11,7 @@ import yfinance as yf
 
 API_KEY = os.getenv("ALPHAVANTAGE_API_KEY", "9THYPTW9AE1DRHYJ")
 BASE_URL = "https://www.alphavantage.co/query"
-RATE_SLEEP = 0.3  # tuned for 75 req/min
+RATE_SLEEP = 0.01
 
 SECTOR_LEADERS: Dict[str, List[str]] = {
     "Communication Services": ["META", "GOOGL", "TMUS", "VZ"],
@@ -41,7 +41,7 @@ YF_TO_GICS: Dict[str, str] = {
     "utilities":             "Utilities",
 }
 
-@lru_cache(maxsize=512)
+@lru_cache(maxsize=2048)
 def get_sector(ticker: str) -> str | None:
     info = yf.Ticker(ticker).get_info()
     raw_key = info.get("sectorKey") or info.get("sector")
