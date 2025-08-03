@@ -38,7 +38,7 @@ def get_sector(ticker):
     alpha_url = f"https://www.alphavantage.co/query?function=OVERVIEW&symbol={ticker}&apikey=9THYPTW9AE1DRHYJ"
     alpha_CIK = requests.get(alpha_url).json()["CIK"]
     CIK_to_FMP_url = f"https://financialmodelingprep.com/stable/profile-cik?cik={alpha_CIK}&apikey=ctaFTNC4FkIV3kxvxBWMVimtV786oI0A"
-    FMP = pd.DataFrame(requests.get(CIK_to_FMP_url).json())["sector"]
+    FMP = pd.DataFrame(requests.get(CIK_to_FMP_url).json())["sector"].values.item()
     GICS_sector_key = FMP_TO_GICS.get(FMP, None)
     return GICS_sector_key
 
@@ -58,8 +58,6 @@ def Companies_in_Same_Sector_for_comparison(ticker):
 def sector_1d_comparison(ticker):
     same_sector = Companies_in_Same_Sector_for_comparison(ticker)
     tickers     = [ticker] + same_sector
-    end         = datetime.now()
-    start       = end - timedelta(days=1)
     raw = {}
     for TI in tickers:
         INTRADAY_url = (
@@ -84,17 +82,13 @@ def sector_1d_comparison(ticker):
     rows = []
     rows_compare = []
     for sym in tickers:
-        df = raw[sym] if isinstance(raw.columns, pd.MultiIndex) else raw
+        df = raw[sym]
 
-        open_p = df["Open"].dropna().iloc[0]
-        last_p = df["Close"].dropna().iloc[-1]
+        open_p = df["Open"].iloc[0]
+        last_p = df["Close"].iloc[-1]
         pct = (last_p - open_p) / open_p * 100
 
-        group = (
-            "Target"         if sym == ticker else
-            "Same Sector"    if sym in same_sector else
-            "ERROR!!!"
-        )
+        group = "Target" if sym == ticker else "Same Sector"
         rows.append((group, sym, open_p, last_p, f"{pct:+.3f}"))
         rows_compare.append((group, sym, pct))
     
