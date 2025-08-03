@@ -135,7 +135,7 @@ def sector_1d_comparison(ticker: str):
         signal = -3
         text = (
             f"{ticker} is underperforming its same‑sector peers with a 1‑Day return of "
-            f"{tgt_pct:.2f}%, ranking in the bottom quartile.".
+            f"{tgt_pct:.2f}%, ranking in the bottom quartile."
         )
     else:
         status = "In‑Line"
