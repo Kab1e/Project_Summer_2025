@@ -8,19 +8,25 @@ Built as a final project for **IS 430**, this tool combines real-time data, user
 
 ## Features
 
-- **Real-Time Price Retrieval**  
-  Fetches current and historical stock prices using the `yfinance` API.
+- **Smart Ticker Search & Auto-Complete**  
+  Streamlit sidebar is wired to Alpha Vantage’s `SYMBOL_SEARCH` endpoint.  
+  Type **≥ 2** characters and pick from a live drop-down of best matches.
 
-- **User Scenario Input**  
-  - Enter stock ticker  
-  - Define your average share price and number of shares held  
-  - Input risk tolerance (Low, Medium, High)
+- **One-Click, Three-Pillar Analysis**  
+  Press **Run Analysis** and get a consolidated report built from three dedicated back-ends:  
+  1. **Earnings Report** – Alpha Vantage quarterly earnings & EPS-surprise tables, QoQ/YoY growth, next call date, and a qualitative outlook score.  
+  2. **Sector Performance** – 1-day relative return versus predefined sector leaders (powered by `yfinance`), with traffic-light status and signal strength.  
+  3. **Macro Data Dashboard** – Sector-specific indicators (e.g., Durable Goods, INDPRO, CPI) pulled from FRED/BLS, rolled up into a “Market Expectation” verdict plus narrative.
 
-- **Interactive Profit/Loss Curves**  
-  Visualizes strategy outcomes using dynamic graphs:
-  - P/L vs. underlying price
-  - Marked break-even points
-  - Strategy comparison
+- **Interactive DataFrames & Callouts**  
+  Wide, sortable tables rendered with Streamlit’s `st.dataframe`, highlighted metrics, and color-coded info/success alerts for instant insight.
 
-- **Explanatory Annotations**  
-  Each strategy comes with a description, visual intuition, and when it works best.
+- **Clean, Responsive Streamlit UI**  
+  Spinners during data fetches, responsive wide layout, and a concise sidebar that keeps controls and context in one place.
+
+- **Modular Architecture for Easy Extension**  
+  Each analytical layer lives in its own file (`BackEnd_01_Earnings.py`, `BackEnd_02_Sector_Performance.py`, `BackEnd_03_Macro_Data.py`), making it straightforward to swap data sources or bolt on new analyses.
+
+- **Environment-Friendly Configuration**  
+  Alpha Vantage API key can be set via the `ALPHAVANTAGE_API_KEY` environment variable—no hard-coding required.
+
