@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 from BackEnd_01_Earnings import ER_table_1, EPS_table_2, get_next_earnings_report_date, earnings_outlook
-from BackEnd_02_try import sector_1d_comparison
+from BackEnd_02_try2 import sector_1d_comparison
 from BackEnd_03_Macro_Data import macro_data_analysis
 
 st.set_page_config(
