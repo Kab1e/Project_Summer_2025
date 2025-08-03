@@ -1,24 +1,23 @@
 import yfinance as yf
 import pandas as pd
 from datetime import datetime, timedelta
-from functools import lru_cache
-
-lru_cache(maxsize=32)  
+import requests
+import time
 
 # Part 2 of Project IS 430:
 
-YF_TO_GICS = {
-    "basic-materials":       "Materials",
-    "communication-services":"Communication Services",
-    "consumer-cyclical":     "Consumer Discretionary",
-    "consumer-defensive":    "Consumer Staples",
-    "energy":                "Energy",
-    "financial-services":    "Financials",
-    "healthcare":            "Health Care",
-    "industrials":           "Industrials",
-    "real-estate":           "Real Estate",
-    "technology":            "Information Technology",
-    "utilities":             "Utilities"
+FMP_TO_GICS = {
+    "Basic Materials":       "Materials",
+    "Communication Services":"Communication Services",
+    "Consumer Cyclical":     "Consumer Discretionary",
+    "Consumer Defensive":    "Consumer Staples",
+    "Energy":                "Energy",
+    "Financial Services":    "Financials",
+    "Healthcare":            "Health Care",
+    "Industrials":           "Industrials",
+    "Real Estate":           "Real Estate",
+    "Technology":            "Information Technology",
+    "Utilities":             "Utilities"
 }
 
 SECTOR_LEADERS = {
@@ -36,9 +35,11 @@ SECTOR_LEADERS = {
 }
 
 def get_sector(ticker):
-    Target_ticker_info = yf.Ticker(ticker).info
-    YF_sector_key = Target_ticker_info.get("sectorKey")
-    GICS_sector_key = YF_TO_GICS.get(YF_sector_key, None)
+    alpha_url = f"https://www.alphavantage.co/query?function=OVERVIEW&symbol={ticker}&apikey=9THYPTW9AE1DRHYJ"
+    alpha_CIK = requests.get(alpha_url).json()["CIK"]
+    CIK_to_FMP_url = f"https://financialmodelingprep.com/stable/profile-cik?cik={alpha_CIK}&apikey=ctaFTNC4FkIV3kxvxBWMVimtV786oI0A"
+    FMP = pd.DataFrame(requests.get(CIK_to_FMP_url).json())["sector"]
+    GICS_sector_key = FMP_TO_GICS.get(FMP, None)
     return GICS_sector_key
 
 def Companies_in_Same_Sector_for_comparison(ticker):
@@ -56,18 +57,30 @@ def Companies_in_Same_Sector_for_comparison(ticker):
 
 def sector_1d_comparison(ticker):
     same_sector = Companies_in_Same_Sector_for_comparison(ticker)
-    tickers = [ticker] + same_sector
-    end = datetime.now()
-    start = end - timedelta(days=1)
-    raw = yf.download(
-        tickers,
-        start=start.strftime("%Y-%m-%d"),
-        end=end.strftime("%Y-%m-%d"),
-        interval="1m",
-        group_by="ticker",
-        progress=False
-    )
-    
+    tickers     = [ticker] + same_sector
+    end         = datetime.now()
+    start       = end - timedelta(days=1)
+    raw = {}
+    for TI in tickers:
+        INTRADAY_url = (
+            f"https://www.alphavantage.co/query"
+            f"?function=TIME_SERIES_INTRADAY"
+            f"&symbol={TI}"
+            f"&interval=5min"
+            f"&entitlement=delayed"
+            f"&apikey=9THYPTW9AE1DRHYJ"
+        )
+        resp = requests.get(INTRADAY_url)
+        data = resp.json()
+        ts_key = "Time Series (5min)"
+        ts     = data.get(ts_key, {})
+        df = pd.DataFrame.from_dict(ts, orient="index")
+        df.index = pd.to_datetime(df.index)
+        df.columns = [col.split(". ")[1].lower().capitalize() for col in df.columns]
+        raw[TI] = df.sort_index().astype(float)
+
+        time.sleep(0.3)
+
     rows = []
     rows_compare = []
     for sym in tickers:
