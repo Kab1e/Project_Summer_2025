@@ -40,7 +40,7 @@ def show_part_i(ticker: str):
     st.info(outlook)
     st.write(f"**Next earnings call:** {next_call}")
 
-
+'''
 def show_part_ii(ticker: str):
     """Sector performance section."""
     st.header("Ⅱ Sector Performance 🏢")
@@ -49,7 +49,7 @@ def show_part_ii(ticker: str):
 
     render_dataframe(df)
     st.success(summary)
-
+'''
 
 def show_part_iii(ticker: str):
     """Macro‑economic indicators section."""
