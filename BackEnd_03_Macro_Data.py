@@ -268,39 +268,39 @@ def macro_data_analysis(ticker):
     
     signal = None #Only For When I Have Not Done All
     if sector == "Materials": #1
-        macro_data_analysis_output1 = f"Not Done Yet"
-        macro_data_analysis_output2 = f"Not Done Yet"
-        macro_data_analysis_output_df = f"Not Done Yet"
+        macro_data_analysis_output1 = f"Coming Soon"
+        macro_data_analysis_output2 = None
+        macro_data_analysis_output_df = None
     
     elif sector == "Communication Services": #2
-        macro_data_analysis_output1 = f"Not Done Yet"
-        macro_data_analysis_output2 = f"Not Done Yet"
-        macro_data_analysis_output_df = f"Not Done Yet"
+        macro_data_analysis_output1 = f"Coming Soon"
+        macro_data_analysis_output2 = None
+        macro_data_analysis_output_df = None
     
     elif sector == "Consumer Discretionary": #3
-        macro_data_analysis_output1 = f"Not Done Yet"
-        macro_data_analysis_output2 = f"Not Done Yet"
-        macro_data_analysis_output_df = f"Not Done Yet"
+        macro_data_analysis_output1 = f"Coming Soon"
+        macro_data_analysis_output2 = None
+        macro_data_analysis_output_df = None
     
     elif sector == "Consumer Staples": #4
-        macro_data_analysis_output1 = f"Not Done Yet"
-        macro_data_analysis_output2 = f"Not Done Yet"
-        macro_data_analysis_output_df = f"Not Done Yet"
+        macro_data_analysis_output1 = f"Coming Soon"
+        macro_data_analysis_output2 = None
+        macro_data_analysis_output_df = None
     
     elif sector == "Energy": #5
-        macro_data_analysis_output1 = f"Not Done Yet"
-        macro_data_analysis_output2 = f"Not Done Yet"
-        macro_data_analysis_output_df = f"Not Done Yet"
+        macro_data_analysis_output1 = f"Coming Soon"
+        macro_data_analysis_output2 = None
+        macro_data_analysis_output_df = None
     
     elif sector == "Financials": #6
-        macro_data_analysis_output1 = f"Not Done Yet"
-        macro_data_analysis_output2 = f"Not Done Yet"
-        macro_data_analysis_output_df = f"Not Done Yet"
+        macro_data_analysis_output1 = f"Coming Soon"
+        macro_data_analysis_output2 = None
+        macro_data_analysis_output_df = None
 
     elif sector == "Health Care": #7
-        macro_data_analysis_output1 = f"Not Done Yet"
-        macro_data_analysis_output2 = f"Not Done Yet"
-        macro_data_analysis_output_df = f"Not Done Yet"
+        macro_data_analysis_output1 = f"Coming Soon"
+        macro_data_analysis_output2 = None
+        macro_data_analysis_output_df = None
 
 
     elif sector == "Industrials": #8
@@ -310,19 +310,19 @@ def macro_data_analysis(ticker):
         macro_data_analysis_output_df = df
     
     elif sector == "Real Estate": #9
-        macro_data_analysis_output1 = f"Not Done Yet"
-        macro_data_analysis_output2 = f"Not Done Yet"
-        macro_data_analysis_output_df = f"Not Done Yet"
+        macro_data_analysis_output1 = f"Coming Soon"
+        macro_data_analysis_output2 = None
+        macro_data_analysis_output_df = None
 
     elif sector == "Information Technology": #10
-        macro_data_analysis_output1 = f"Not Done Yet"
-        macro_data_analysis_output2 = f"Not Done Yet"
-        macro_data_analysis_output_df = f"Not Done Yet"
+        macro_data_analysis_output1 = f"Coming Soon"
+        macro_data_analysis_output2 = None
+        macro_data_analysis_output_df = None
 
     elif sector == "Utilities": #11
-        macro_data_analysis_output1 = f"Not Done Yet"
-        macro_data_analysis_output2 = f"Not Done Yet"
-        macro_data_analysis_output_df = f"Not Done Yet"
+        macro_data_analysis_output1 = f"Coming Soon"
+        macro_data_analysis_output2 = None
+        macro_data_analysis_output_df = None
 
 
     Default = f"Market Expectation: "
