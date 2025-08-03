@@ -8,10 +8,6 @@ Built as a final project for **IS 430**, this tool combines real-time data, user
 
 ## Features
 
-- **Smart Ticker Search & Auto-Complete**  
-  Streamlit sidebar is wired to Alpha Vantage’s `SYMBOL_SEARCH` endpoint.  
-  Type **≥ 2** characters and pick from a live drop-down of best matches.
-
 - **One-Click, Three-Pillar Analysis**  
   Press **Run Analysis** and get a consolidated report built from three dedicated back-ends:  
   1. **Earnings Report** – Alpha Vantage quarterly earnings & EPS-surprise tables, QoQ/YoY growth, next call date, and a qualitative outlook score.  
