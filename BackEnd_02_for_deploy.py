@@ -3,21 +3,16 @@ from __future__ import annotations
 import os
 import time
 from functools import lru_cache
-from typing import Tuple, List, Dict
+from typing import List, Dict, Tuple
 
 import pandas as pd
 import requests
+import yfinance as yf
 
-# ---------------------------------------------------------------------------
-# 🔑 Alpha Vantage setup – your key defaults to 9THYPTW9AE1DRHYJ
-# ---------------------------------------------------------------------------
 API_KEY = os.getenv("ALPHAVANTAGE_API_KEY", "9THYPTW9AE1DRHYJ")
 BASE_URL = "https://www.alphavantage.co/query"
-RATE_SLEEP = 0.3  # 75 req/min headroom
+RATE_SLEEP = 0.3  # tuned for 75 req/min
 
-# ---------------------------------------------------------------------------
-# 📋 Sector leaders (user‑curated, Magnificent‑7 inclusive)
-# ---------------------------------------------------------------------------
 SECTOR_LEADERS: Dict[str, List[str]] = {
     "Communication Services": ["META", "GOOGL", "TMUS", "VZ"],
     "Consumer Discretionary": ["AMZN", "TSLA", "F", "HD"],
@@ -32,9 +27,31 @@ SECTOR_LEADERS: Dict[str, List[str]] = {
     "Utilities": ["NEE", "DUK", "SO", "EXC"],
 }
 
-# ---------------------------------------------------------------------------
-# 🛠  Alpha Vantage JSON fetch with cache & fast back‑off
-# ---------------------------------------------------------------------------
+YF_TO_GICS: Dict[str, str] = {
+    "basic-materials":       "Materials",
+    "communication-services":"Communication Services",
+    "consumer-cyclical":     "Consumer Discretionary",
+    "consumer-defensive":    "Consumer Staples",
+    "energy":                "Energy",
+    "financial-services":    "Financials",
+    "healthcare":            "Health Care",
+    "industrials":           "Industrials",
+    "real-estate":           "Real Estate",
+    "technology":            "Information Technology",
+    "utilities":             "Utilities",
+}
+
+@lru_cache(maxsize=512)
+def get_sector(ticker: str) -> str | None:
+    """Return canonical GICS sector for *ticker* using **yfinance**."""
+    try:
+        info = yf.Ticker(ticker).get_info()
+        raw_key = info.get("sectorKey") or info.get("sector")
+        if raw_key is None:
+            return None
+        return YF_TO_GICS.get(str(raw_key).lower(), raw_key)
+    except Exception:
+        return None
 
 @lru_cache(maxsize=256)
 def _av_request(**params) -> dict:
@@ -50,19 +67,6 @@ def _av_request(**params) -> dict:
             raise ValueError(data["Error Message"])
         return data
 
-# ---------------------------------------------------------------------------
-# 🗂 Sector resolver – cached 12 h
-# ---------------------------------------------------------------------------
-
-@lru_cache(maxsize=512)
-def get_sector(ticker: str) -> str | None:
-    data = _av_request(function="OVERVIEW", symbol=ticker.upper())
-    return data.get("Sector")
-
-# ---------------------------------------------------------------------------
-# 📈 Two‑day close helper – cached 3 h
-# ---------------------------------------------------------------------------
-
 @lru_cache(maxsize=512)
 def _get_latest_two_closes(ticker: str) -> Tuple[float, float, str, str]:
     ts = _av_request(
@@ -74,10 +78,6 @@ def _get_latest_two_closes(ticker: str) -> Tuple[float, float, str, str]:
     last_c = float(ts[dates[0]]["5. adjusted close"])
     prev_c = float(ts[dates[1]]["5. adjusted close"])
     return prev_c, last_c, dates[1], dates[0]
-
-# ---------------------------------------------------------------------------
-# 🚦 Public API – sector_1d_comparison
-# ---------------------------------------------------------------------------
 
 def sector_1d_comparison(ticker: str):
     ticker = ticker.upper()
