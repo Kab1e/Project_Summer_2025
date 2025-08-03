@@ -49,7 +49,6 @@ def show_part_ii(ticker: str):
 
     render_dataframe(df)
     st.success(summary)
-    st.write(f"**Status:** {status} · **Signal:** {signal:+d}")
 
 
 def show_part_iii(ticker: str):
