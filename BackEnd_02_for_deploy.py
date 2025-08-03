@@ -43,15 +43,9 @@ YF_TO_GICS: Dict[str, str] = {
 
 @lru_cache(maxsize=512)
 def get_sector(ticker: str) -> str | None:
-    """Return canonical GICS sector for *ticker* using **yfinance**."""
-    try:
-        info = yf.Ticker(ticker).get_info()
-        raw_key = info.get("sectorKey") or info.get("sector")
-        if raw_key is None:
-            return None
-        return YF_TO_GICS.get(str(raw_key).lower(), raw_key)
-    except Exception:
-        return None
+    info = yf.Ticker(ticker).get_info()
+    raw_key = info.get("sectorKey") or info.get("sector")
+    return YF_TO_GICS.get(str(raw_key).lower(), raw_key)
 
 @lru_cache(maxsize=256)
 def _av_request(**params) -> dict:
