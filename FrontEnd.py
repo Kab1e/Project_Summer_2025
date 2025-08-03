@@ -41,14 +41,14 @@ def show_part_i(ticker: str):
     st.write(f"**Next earnings call:** {next_call}")
 
 
-# def show_part_ii(ticker: str):
+def show_part_ii(ticker: str):
     """Sector performance section."""
-    # st.header("Ⅱ Sector Performance 🏢")
-    # with st.spinner("Comparing same‑sector performance…"):
-        # df, status, signal, summary = sector_1d_comparison(ticker)
+    st.header("Ⅱ Sector Performance 🏢")
+    with st.spinner("Comparing same‑sector performance…"):
+        df, status, signal, summary = sector_1d_comparison(ticker)
 
-    # render_dataframe(df)
-     #st.success(summary)
+    render_dataframe(df)
+    st.success(summary)
 
 
 def show_part_iii(ticker: str):
@@ -74,7 +74,7 @@ if run_button:
         try:
             show_part_i(ticker)
             st.markdown("---")
-            # show_part_ii(ticker)
+            show_part_ii(ticker)
             st.markdown("---")
             show_part_iii(ticker)
         except Exception as e:
