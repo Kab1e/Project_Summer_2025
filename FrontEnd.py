@@ -74,7 +74,7 @@ if run_button:
         try:
             show_part_i(ticker)
             st.markdown("---")
-            show_part_ii(ticker)
+            # show_part_ii(ticker)
             st.markdown("---")
             show_part_iii(ticker)
         except Exception as e:
