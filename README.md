@@ -1,8 +1,8 @@
 # Project_Summer_2025 - Interactive Stock Strategy Simulator
 
-This Simulator is a Streamlit-based stock analytics dashboard designed to help individual investors simulate profit/loss outcomes and evaluate strategic options for existing stock positions. 
+This Simulator is a Streamlit-based stock analytics dashboard. 
 
-Built as a final project for **IS 430**, this tool combines real-time data, user-defined scenarios, and visualization to offer strategic insights on minimizing risk and maximizing return using basic options strategies.
+Built as a final project for **IS 430**, this tool combines real-time data, user-defined scenarios (not yet), and visualization (not yet) to offer strategic insights on minimizing risk and maximizing return using basic options strategies.
 
 ---
 
