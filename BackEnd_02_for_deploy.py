@@ -44,7 +44,7 @@ YF_TO_GICS: Dict[str, str] = {
 @lru_cache(maxsize=2048)
 def get_sector(ticker: str) -> str | None:
     info = yf.Ticker(ticker).get_info()
-    raw_key = info.get("sectorKey") or info.get("sector")
+    raw_key = info.get("sectorKey")
     return YF_TO_GICS.get(str(raw_key).lower(), raw_key)
 
 @lru_cache(maxsize=256)
