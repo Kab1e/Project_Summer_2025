@@ -65,10 +65,10 @@ def show_part_iii(ticker: str):
 
 def show_part_iv(ticker: str):
     st.header("Ⅳ Trade Strategy 🚀")
-    with st.spinner("Retrieving sector‑specific macro indicators…"):
+    with st.spinner("Looking forward…"):
         scenario, plan = get_trade_plan(ticker)
     
-    st.write(f"**{scenario}**:")
+    st.subheader(f"Forward-Going Outlook: **{scenario}**")
     st.info(f"{plan}")
 
     
