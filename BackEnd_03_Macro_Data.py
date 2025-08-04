@@ -4,8 +4,9 @@ from datetime import datetime, timedelta
 
 from BackEnd_02_Sector_Performance import get_sector
 
-from BackEnd_03_Sector_Industrials import Industrial_Sector_Company
-from BackEnd_03_Sector_ConsumerDiscretionary import Consumer_Discretionary_Sector
+from BackEnd_03_Sector_Analysis.BackEnd_03_Sector_Industrials import Industrial_Sector_Company
+from BackEnd_03_Sector_Analysis.BackEnd_03_Sector_ConsumerDiscretionary import Consumer_Discretionary_Sector
+from BackEnd_03_Sector_Analysis.BackEnd_03_Sector_ConsumerStaples import Consumer_Staples_Sector
 
 # Part 3 of Project IS 430:
 
@@ -37,12 +38,12 @@ def macro_data_analysis(ticker):
     signal = None #Only For When I Have Not Done All
     if sector == "Materials": #1
         macro_data_analysis_output1 = f"Coming Soon"
-        macro_data_analysis_output2 = None
+        macro_data_analysis_output2 = ""
         macro_data_analysis_output_df = None
     
     elif sector == "Communication Services": #2
         macro_data_analysis_output1 = f"Coming Soon"
-        macro_data_analysis_output2 = None
+        macro_data_analysis_output2 = ""
         macro_data_analysis_output_df = None
     
     elif sector == "Consumer Discretionary": #3
@@ -52,25 +53,25 @@ def macro_data_analysis(ticker):
         macro_data_analysis_output_df = df
     
     elif sector == "Consumer Staples": #4
-        macro_data_analysis_output1 = f"Coming Soon"
-        macro_data_analysis_output2 = None
-        macro_data_analysis_output_df = None
+        Output_Line1, Output_Line2, df, signal = Consumer_Staples_Sector()
+        macro_data_analysis_output1 = Output_Line1
+        macro_data_analysis_output2 = Output_Line2
+        macro_data_analysis_output_df = df
     
     elif sector == "Energy": #5
         macro_data_analysis_output1 = f"Coming Soon"
-        macro_data_analysis_output2 = None
+        macro_data_analysis_output2 = ""
         macro_data_analysis_output_df = None
     
     elif sector == "Financials": #6
         macro_data_analysis_output1 = f"Coming Soon"
-        macro_data_analysis_output2 = None
+        macro_data_analysis_output2 = ""
         macro_data_analysis_output_df = None
 
     elif sector == "Health Care": #7
         macro_data_analysis_output1 = f"Coming Soon"
-        macro_data_analysis_output2 = None
+        macro_data_analysis_output2 = ""
         macro_data_analysis_output_df = None
-
 
     elif sector == "Industrials": #8
         Output_Line1, Output_Line2, df, signal = Industrial_Sector_Company()
@@ -80,17 +81,17 @@ def macro_data_analysis(ticker):
     
     elif sector == "Real Estate": #9
         macro_data_analysis_output1 = f"Coming Soon"
-        macro_data_analysis_output2 = None
+        macro_data_analysis_output2 = ""
         macro_data_analysis_output_df = None
 
     elif sector == "Information Technology": #10
         macro_data_analysis_output1 = f"Coming Soon"
-        macro_data_analysis_output2 = None
+        macro_data_analysis_output2 = ""
         macro_data_analysis_output_df = None
 
     elif sector == "Utilities": #11
         macro_data_analysis_output1 = f"Coming Soon"
-        macro_data_analysis_output2 = None
+        macro_data_analysis_output2 = ""
         macro_data_analysis_output_df = None
 
 
