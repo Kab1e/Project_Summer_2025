@@ -129,6 +129,6 @@ def earnings_outlook(er_score: int, eps_score: int) -> tuple[str, str]:
         output_line = f"EPS Surprise Despite Tepid Top-Line Growth. Short-term optimism possible, but be cautious — underlying growth is not yet convincing."
 
     else:
-        output_line = f"Weak Overall Earnings Performance. Earnings trends are soft — consider holding off, reviewing your risk exposure before entering or even short."
+        output_line = f"Weak Overall Earnings Performance. Earnings trends are soft — consider holding off, review your risk exposure before entering or even short."
 
     return output_line
