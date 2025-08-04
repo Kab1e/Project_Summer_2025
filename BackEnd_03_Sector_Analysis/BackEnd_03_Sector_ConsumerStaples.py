@@ -59,7 +59,7 @@ def ppi_analysis(mom_pct: float, yoy_pct: float):
         sig -= 5
     return txt, sig
 
-def Sticky_CPI():
+def Core_CPI():
     url = "https://www.atlantafed.org/-/media/documents/datafiles/research/inflationproject/stickprice/stickyprice.xlsx"
     xls = pd.read_excel(url).iloc[-13:][["Date", "Core Flexible CPI (monthly)", "1-mo annualized percent change.1", "12mo.1"]]
     xls["Date"] = pd.to_datetime(xls["Date"])
@@ -113,14 +113,14 @@ def Consumer_Staples_Sector():
     macro_data_sign = 0
     data_rows = []
 
-    sc_row, sc_out, sc_sig = Sticky_CPI()
+    sc_row, sc_out, sc_sig = Core_CPI()
     macro_data_sign += sc_sig
 
     ppi_row, ppi_out, ppi_sig = PPI_All_Commodities()
     macro_data_sign += ppi_sig
 
     data_rows += sc_row + ppi_row
-    idx = ["Sticky CPI", "PPI All Commodities"]
+    idx = ["Core CPI", "PPI (All Commodities)"]
 
     df = pd.DataFrame(data_rows, columns=GENERAL_Output_columns, index=idx)
     return sc_out, ppi_out, df, macro_data_sign
