@@ -118,17 +118,17 @@ def EPS_table_2(ticker):
 def earnings_outlook(er_score: int, eps_score: int) -> tuple[str, str]:
     if er_score > 4 and eps_score > 0:
         output_line = f"Strong Earnings Across the Board, Momentum looks strong — this may be a good time to enter or add to your position."
-        
+        output_score = 2
     elif er_score > 4 and eps_score < 0:
         output_line = f"Strong Operational Growth. Though EPS MISSED, fundamentals are solid, but the market may wait for clearer earnings execution — proceed with moderate confidence."
-
+        output_score = 1
     elif er_score > 4 and eps_score == 0:
         output_line = f"Strong Operational Growth. Fundamentals are solid, but the market may wait for clearer earnings execution — proceed with moderate confidence."
-
+        output_score = 0
     elif er_score <= 4 and eps_score > 0:
         output_line = f"EPS Surprise Despite Tepid Top-Line Growth. Short-term optimism possible, but be cautious — underlying growth is not yet convincing."
-
+        output_score = -1
     else:
         output_line = f"Weak Overall Earnings Performance. Earnings trends are soft — consider holding off, review your risk exposure before entering or even short."
-
-    return output_line
+        output_score = -2
+    return output_line, output_score

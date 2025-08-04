@@ -98,15 +98,21 @@ def macro_data_analysis(ticker):
     Default = f"Market Expectation: "
     if signal == 10 or signal == 8:
         signal_output = (Default + f"Very Good. \n" + "\n" + f"Industrial macro indicators are firing on all cylinders. Robust order books and rising capacity utilisation point to continued revenue tailwinds and margin support across the sector.")
+        score = 2
     elif signal in [6, 5, 4]:
         signal_output = (Default + f"Good. \n" + "\n" + f"Key macro metrics show healthy – though moderating – growth. The backdrop remains constructive, but monitor upcoming releases for signs of cooling demand.")
+        score = 1
     elif signal in [3, 2, 1, 0, -1, -2, -3]:
         signal_output = (Default + f"Give It Some Time. \n" + "\n" + f"Signals are mixed. A stabilisation phase could be forming, but you’ll want confirmation from next month’s Durable-Goods and INDPRO prints.")
+        score = 0
     elif signal in [-4, -5, -6]:
         signal_output = (Default + f"Bad. \n" + "\n" + f"Macro momentum has soured, with contracting orders and production flagging near-term headwinds. A more defensive stance is prudent.")
+        score = -1
     elif signal == -8 or signal == -10:
         signal_output = (Default + f"Very Bad. \n" + "\n" + f"Leading indicators flash recessionary warnings. Expect broad demand weakness and potential earnings downgrades sector-wide.")
+        score = 0
     else:
         signal_output = (f"Coming Soon, Give It Some Time.")
+        score = 0
 
-    return macro_data_analysis_output1, macro_data_analysis_output2, macro_data_analysis_output_df, signal_output
+    return macro_data_analysis_output1, macro_data_analysis_output2, macro_data_analysis_output_df, signal_output, score
