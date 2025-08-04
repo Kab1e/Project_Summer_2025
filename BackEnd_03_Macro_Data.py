@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 from BackEnd_02_Sector_Performance import get_sector
 
 from BackEnd_03_Sector_Industrials import Industrial_Sector_Company
+from BackEnd_03_Sector_ConsumerDiscretionary import Consumer_Discretionary_Sector
 
 # Part 3 of Project IS 430:
 
@@ -45,9 +46,10 @@ def macro_data_analysis(ticker):
         macro_data_analysis_output_df = None
     
     elif sector == "Consumer Discretionary": #3
-        macro_data_analysis_output1 = f"Coming Soon"
-        macro_data_analysis_output2 = None
-        macro_data_analysis_output_df = None
+        Output_Line1, Output_Line2, df, signal = Consumer_Discretionary_Sector()
+        macro_data_analysis_output1 = Output_Line1
+        macro_data_analysis_output2 = Output_Line2
+        macro_data_analysis_output_df = df
     
     elif sector == "Consumer Staples": #4
         macro_data_analysis_output1 = f"Coming Soon"
