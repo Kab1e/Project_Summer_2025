@@ -107,6 +107,6 @@ def macro_data_analysis(ticker):
     elif signal == -8 or signal == -10:
         signal_output = (Default + f"Very Bad. \n" + "\n" + f"Leading indicators flash recessionary warnings. Expect broad demand weakness and potential earnings downgrades sector-wide.")
     else:
-        signal_output = (f"Something Went WRONG!!!")
+        signal_output = (f"Coming Soon, Give It Some Time.")
 
     return macro_data_analysis_output1, macro_data_analysis_output2, macro_data_analysis_output_df, signal_output
