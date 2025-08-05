@@ -232,7 +232,7 @@ def INDPRO():
 # Industrials Output
 
 def Industrial_Sector_Company():
-    global macro_data_sign
+    macro_data_sign = 0
 
     GENERAL_output_data = []
     Durable_Goods_data, Durable_Goods_Analysis_Output, Durable_Goods_signal = Durable_Goods()
