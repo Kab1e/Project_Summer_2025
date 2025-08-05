@@ -95,7 +95,7 @@ def show_part_iii(ticker: str):
 def show_part_iv(ticker: str):
     st.header("Ⅳ. Trade Strategy 🚀")
     with st.spinner("Looking forward…"):
-        scenario, plan = get_trade_plan(ticker)
+        scenario, plan = get_trade_plan(ticker, share_count)
     
     st.subheader(f"Forward-Going Outlook: **{scenario}**")
     st.success(f"{plan}")
