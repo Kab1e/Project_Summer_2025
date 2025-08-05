@@ -1,4 +1,4 @@
-# Project_Summer_2025 - Interactive Stock Strategy Simulator
+# Project_Summer_2025 - Stock Strategy Platform
 
 This Simulator is a Streamlit-based stock analytics dashboard. 
 
