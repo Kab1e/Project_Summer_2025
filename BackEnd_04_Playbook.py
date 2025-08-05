@@ -37,7 +37,10 @@ def get_trade_plan(ticker, shares = 100):
         if shares >= 100:
             plan = (
                 "Sell 2-week OTM puts to enhance returns. (No Protection, Risky, but Maximize Gain)"
-                + "\n" + "Sell 1-month OTM call to enhance returns while capping upside"
+                + "\n" 
+                + "\n" 
+                + "\n" 
+                + "__OR__ Sell 1-month OTM call to enhance returns while capping upside"
             )
         else:
             plan = (
