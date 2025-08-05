@@ -112,7 +112,11 @@ def macro_data_analysis(ticker):
         signal_output = (Default + f"Very Bad. \n" + "\n" + f"Leading indicators flash recessionary warnings. Expect broad demand weakness and potential earnings downgrades sector-wide.")
         score = 0
     else:
-        signal_output = (f"Coming Soon, Give It Some Time.")
+        signal_output = (f"Coming Soon..." 
+        + "\n"
+        + "\n" 
+        + "\n" 
+        + f"Currently, this function only supports companies from the following GICS sectors: Consumer Discretionary, Consumer Staples and Industrials.")
         score = 0
 
     return macro_data_analysis_output1, macro_data_analysis_output2, macro_data_analysis_output_df, signal_output, score
