@@ -7,6 +7,14 @@ from BackEnd_02_Sector_Performance import get_sector
 from BackEnd_03_Sector_Analysis.BackEnd_03_Sector_Industrials import Industrial_Sector_Company
 from BackEnd_03_Sector_Analysis.BackEnd_03_Sector_ConsumerDiscretionary import Consumer_Discretionary_Sector
 from BackEnd_03_Sector_Analysis.BackEnd_03_Sector_ConsumerStaples import Consumer_Staples_Sector
+from BackEnd_03_Sector_Analysis.BackEnd_03_Sector_Financials import Financials_Sector
+from BackEnd_03_Sector_Analysis.BackEnd_03_Sector_InformationTechnology import Information_Technology_Sector
+from BackEnd_03_Sector_Analysis.BackEnd_03_Sector_Materials import Materials_Sector
+from BackEnd_03_Sector_Analysis.BackEnd_03_Sector_RealEstate import Real_Estate_Sector
+from BackEnd_03_Sector_Analysis.BackEnd_03_Sector_Utilities import Utilities_Sector
+from BackEnd_03_Sector_Analysis.BackEnd_03_Sector_HealthCare import Health_Care_Sector
+from BackEnd_03_Sector_Analysis.BackEnd_03_Sector_CommunicationServices import Communication_Services_Sector
+from BackEnd_03_Sector_Analysis.BackEnd_03_Sector_Energy import Energy_Sector
 
 # Part 3 of Project IS 430:
 
@@ -34,17 +42,18 @@ macro_data_sign = 0
 
 def macro_data_analysis(ticker):
     sector = get_sector(ticker)
-    
-    signal = None #Only For When I Have Not Done All
+
     if sector == "Materials": #1
-        macro_data_analysis_output1 = f"Coming Soon"
-        macro_data_analysis_output2 = ""
-        macro_data_analysis_output_df = None
+        Output_Line1, Output_Line2, df, signal = Materials_Sector()
+        macro_data_analysis_output1 = Output_Line1
+        macro_data_analysis_output2 = Output_Line2
+        macro_data_analysis_output_df = df
     
     elif sector == "Communication Services": #2
-        macro_data_analysis_output1 = f"Coming Soon"
-        macro_data_analysis_output2 = ""
-        macro_data_analysis_output_df = None
+        Output_Line1, Output_Line2, df, signal = Communication_Services_Sector()
+        macro_data_analysis_output1 = Output_Line1
+        macro_data_analysis_output2 = Output_Line2
+        macro_data_analysis_output_df = df
     
     elif sector == "Consumer Discretionary": #3
         Output_Line1, Output_Line2, df, signal = Consumer_Discretionary_Sector()
@@ -59,19 +68,22 @@ def macro_data_analysis(ticker):
         macro_data_analysis_output_df = df
     
     elif sector == "Energy": #5
-        macro_data_analysis_output1 = f"Coming Soon"
-        macro_data_analysis_output2 = ""
-        macro_data_analysis_output_df = None
+        Output_Line1, Output_Line2, df, signal = Energy_Sector()
+        macro_data_analysis_output1 = Output_Line1
+        macro_data_analysis_output2 = Output_Line2
+        macro_data_analysis_output_df = df
     
     elif sector == "Financials": #6
-        macro_data_analysis_output1 = f"Coming Soon"
-        macro_data_analysis_output2 = ""
-        macro_data_analysis_output_df = None
+        Output_Line1, Output_Line2, df, signal = Financials_Sector()
+        macro_data_analysis_output1 = Output_Line1
+        macro_data_analysis_output2 = Output_Line2
+        macro_data_analysis_output_df = df
 
     elif sector == "Health Care": #7
-        macro_data_analysis_output1 = f"Coming Soon"
-        macro_data_analysis_output2 = ""
-        macro_data_analysis_output_df = None
+        Output_Line1, Output_Line2, df, signal = Health_Care_Sector()
+        macro_data_analysis_output1 = Output_Line1
+        macro_data_analysis_output2 = Output_Line2
+        macro_data_analysis_output_df = df
 
     elif sector == "Industrials": #8
         Output_Line1, Output_Line2, df, signal = Industrial_Sector_Company()
@@ -80,19 +92,22 @@ def macro_data_analysis(ticker):
         macro_data_analysis_output_df = df
     
     elif sector == "Real Estate": #9
-        macro_data_analysis_output1 = f"Coming Soon"
-        macro_data_analysis_output2 = ""
-        macro_data_analysis_output_df = None
+        Output_Line1, Output_Line2, df, signal = Real_Estate_Sector()
+        macro_data_analysis_output1 = Output_Line1
+        macro_data_analysis_output2 = Output_Line2
+        macro_data_analysis_output_df = df
 
     elif sector == "Information Technology": #10
-        macro_data_analysis_output1 = f"Coming Soon"
-        macro_data_analysis_output2 = ""
-        macro_data_analysis_output_df = None
+        Output_Line1, Output_Line2, df, signal = Information_Technology_Sector()
+        macro_data_analysis_output1 = Output_Line1
+        macro_data_analysis_output2 = Output_Line2
+        macro_data_analysis_output_df = df
 
     elif sector == "Utilities": #11
-        macro_data_analysis_output1 = f"Coming Soon"
-        macro_data_analysis_output2 = ""
-        macro_data_analysis_output_df = None
+        Output_Line1, Output_Line2, df, signal = Utilities_Sector()
+        macro_data_analysis_output1 = Output_Line1
+        macro_data_analysis_output2 = Output_Line2
+        macro_data_analysis_output_df = df
 
 
     Default = f"Market Expectation: "
@@ -112,11 +127,7 @@ def macro_data_analysis(ticker):
         signal_output = (Default + f"Very Bad. \n" + "\n" + f"Leading indicators flash recessionary warnings. Expect broad demand weakness and potential earnings downgrades sector-wide.")
         score = 0
     else:
-        signal_output = (f"Coming Soon..." 
-        + "\n"
-        + "\n" 
-        + "\n" 
-        + f"Currently, this function only supports companies from the following GICS sectors: Consumer Discretionary, Consumer Staples and Industrials.")
+        signal_output = (f"Something Went Wrong for Sure")
         score = 0
 
     return macro_data_analysis_output1, macro_data_analysis_output2, macro_data_analysis_output_df, signal_output, score
