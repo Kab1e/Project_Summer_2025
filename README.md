@@ -16,11 +16,7 @@ python -V
 # 2) Install dependencies
 pip install -r requirements.txt
 
-# 3) Set API keys (PowerShell example shown; adapt for your shell)
-$env:ALPHAVANTAGE_API_KEY="YOUR_ALPHA_VANTAGE_KEY"
-$env:FRED_API_KEY="YOUR_FRED_KEY"  # optional but recommended
-
-# 4) Run the app
+# 3) Run the app
 streamlit run FrontEnd.py
 ```
 
