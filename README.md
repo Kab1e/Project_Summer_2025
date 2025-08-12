@@ -108,4 +108,4 @@ If a data source times out or a series is unavailable, the table shows **“—�
 
 ## Disclaimer
 
-**Nothing here is financial, investment, legal, or tax advice. Do your own research and consult a qualified adviser; investing involves risk.**
+**Nothing here is financial, investment, legal, or tax advice.**
