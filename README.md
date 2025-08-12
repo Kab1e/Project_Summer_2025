@@ -60,9 +60,9 @@ All data tables share the same columns:
 
 | Sector | Module | Row 1 | Row 2 |
 |---|---|---|---|
-| Consumer Discretionary | `BackEnd_03_Sector_ConsumerDiscretionary.py` | **UMich Sentiment** (CSV) | **Retail Sales (RSAFS)** (FRED) |
-| Consumer Staples | `BackEnd_03_Sector_ConsumerStaples.py` | **Core/Sticky CPI** | **PPI** |
-| Industrials | `BackEnd_03_Sector_Industrials.py` | **Durable Goods** | **Industrial Production (INDPRO)** |
+| **Consumer Discretionary** | `BackEnd_03_Sector_ConsumerDiscretionary.py` | **UMich Sentiment** (CSV) | **Retail Sales (RSAFS)** (FRED) |
+| **Consumer Staples** | `BackEnd_03_Sector_ConsumerStaples.py` | **Core/Sticky CPI** | **PPI** |
+| **Industrials** | `BackEnd_03_Sector_Industrials.py` | **Durable Goods** | **Industrial Production (INDPRO)** |
 | **Financials** | `BackEnd_03_Sector_Financials.py` | **Fed Funds (FEDFUNDS)** | **Yield Curve 10y–2y (T10Y2Y)** |
 | **Information Technology** | `BackEnd_03_Sector_InformationTechnology.py` | **Bitcoin (AV, 30d & d/d)** | **Semis IP – NAICS 3344 (IPG3344S)** |
 | **Materials** | `BackEnd_03_Sector_Materials.py` | **Copper (PCOPPUSDM)** | **Primary Metals IP (IPG331S)** |
