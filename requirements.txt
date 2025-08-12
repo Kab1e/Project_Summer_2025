@@ -1,8 +1,9 @@
 streamlit
 pandas
+numpy
 requests
-python-dateutil
-scipy
 fredapi
-openpyxl
 matplotlib
+scipy
+python-dateutil
+openpyxl
