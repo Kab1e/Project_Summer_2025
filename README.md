@@ -1,7 +1,7 @@
 # IS 430 Final Project – Stock Market Analytics (Demo)
 
 A Streamlit app that unifies **Earnings**, **Sector Performance**, and **Macro Data** into a single playbook for any U.S. equity. 
-It fetches real data from **Alpha Vantage** and **FRED**, builds sector‑aware macro tables, and produces an **actionable trade plan**.
+It fetches (maximum) 15-minute delayed data from **Alpha Vantage** and **FRED**, builds sector‑aware macro tables, and produces an **actionable trade plan**.
 
 > Default position size in the UI is **100 shares** (editable). Intraday price uses Alpha Vantage’s 1‑minute data (15‑minute delay per your key tier).
 
