@@ -60,17 +60,17 @@ All data tables share the same columns:
 
 | Sector | Module | Row 1 | Row 2 |
 |---|---|---|---|
-| **Consumer Discretionary** | `BackEnd_03_Sector_ConsumerDiscretionary.py` | **UMich Sentiment** (CSV) | **Retail Sales (RSAFS)** (FRED) |
+| **Consumer Discretionary** | `BackEnd_03_Sector_ConsumerDiscretionary.py` | **UMich Sentiment** | **Retail Sales (RSAFS)** |
 | **Consumer Staples** | `BackEnd_03_Sector_ConsumerStaples.py` | **Core/Sticky CPI** | **PPI** |
 | **Industrials** | `BackEnd_03_Sector_Industrials.py` | **Durable Goods** | **Industrial Production (INDPRO)** |
-| **Financials** | `BackEnd_03_Sector_Financials.py` | **Fed Funds (FEDFUNDS)** | **Yield Curve 10y–2y (T10Y2Y)** |
-| **Information Technology** | `BackEnd_03_Sector_InformationTechnology.py` | **Bitcoin (AV, 30d & d/d)** | **Semis IP – NAICS 3344 (IPG3344S)** |
-| **Materials** | `BackEnd_03_Sector_Materials.py` | **Copper (PCOPPUSDM)** | **Primary Metals IP (IPG331S)** |
-| **Real Estate** | `BackEnd_03_Sector_RealEstate.py` | **30Y Mortgage Rate (MORTGAGE30US)** | **Building Permits (PERMIT)** |
-| **Utilities** | `BackEnd_03_Sector_Utilities.py` | **WTI (DCOILWTICO, 30d & d/d)** | **CPI: Electricity (CUSR0000SEHF01)** |
-| **Health Care** | `BackEnd_03_Sector_HealthCare.py` | **CPI: Medical Care (CPIMEDSL)** | **All Employees: HC & Social Assistance (CES6562000001)** |
-| **Communication Services** | `BackEnd_03_Sector_CommunicationServices.py` | **PPI: Internet Publishing & Web Search (PCU519130519130)** | **IP: Telecommunications (IPG517S)** *(falls back to **IP: Broadcasting (IPG515S)**)* |
-| **Energy** | `BackEnd_03_Sector_Energy.py` | **Brent (DCOILBRENTEU, 30d & d/d)** | **Henry Hub Nat Gas (DHHNGSP)** |
+| **Financials** | `BackEnd_03_Sector_Financials.py` | **Fed Funds (FEDFUNDS)** | **Yield Curve 10y–2y** |
+| **Information Technology** | `BackEnd_03_Sector_InformationTechnology.py` | **Bitcoin (AV, 30d & d/d)** | **Semis IP – NAICS 3344** |
+| **Materials** | `BackEnd_03_Sector_Materials.py` | **Copper** | **Primary Metals IP** |
+| **Real Estate** | `BackEnd_03_Sector_RealEstate.py` | **30Y Mortgage Rate** | **Building Permits** |
+| **Utilities** | `BackEnd_03_Sector_Utilities.py` | **WTI** | **CPI: Electricity** |
+| **Health Care** | `BackEnd_03_Sector_HealthCare.py` | **CPI: Medical Care** | **All Employees: HC & Social Assistance** |
+| **Communication Services** | `BackEnd_03_Sector_CommunicationServices.py` | **PPI: Internet Publishing & Web Search** | **IP: Telecommunications (IPG517S)** |
+| **Energy** | `BackEnd_03_Sector_Energy.py` | **Brent Crude** | **Henry Hub Nat Gas** |
 
 **Notes**
 - IT module appends a fixed line to explain BTC’s role:  
