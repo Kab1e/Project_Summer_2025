@@ -103,4 +103,9 @@ If a data source times out or a series is unavailable, the table shows **“—�
 
 - Data provided by **Alpha Vantage** and **FRED**. Please respect their terms of use.
 - For course/demo purposes.
-- **Nothing here is financial, investment, legal, or tax advice. Do your own research and consult a qualified adviser; investing involves risk.**
+
+---
+
+## Disclaimer
+
+**Nothing here is financial, investment, legal, or tax advice. Do your own research and consult a qualified adviser; investing involves risk.**
