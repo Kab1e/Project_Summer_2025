@@ -82,7 +82,6 @@ All data tables share the same columns:
 ## Scoring & Narratives
 
 - Each indicator contributes an integer **signal** (supportive vs headwind) based on MoM/YoY thresholds tailored to the series.
-- Sector function sums those signals → `signal_int` (clamped to a small range).  
 - The dispatcher converts that into a human‑readable **signal_text** + **score** for the **Playbook**.
 
 ---
@@ -100,16 +99,8 @@ If a data source times out or a series is unavailable, the table shows **“—�
 
 ---
 
-## Troubleshooting
-
-- **Alpha Vantage errors or empty JSON**: you likely hit the rate limit. Wait a minute and retry.
-- **FRED fetch failures**: set `FRED_API_KEY`; otherwise anonymous quota may be low.
-- **Blank tables**: confirm environment variables and internet connectivity.
-- **Time zones**: BTC daily is midnight UTC; mortgage rates are weekly; IP/CPI/PPI are monthly—labels in the tables reflect this.
-
----
-
 ## License / Attribution
 
 - Data provided by **Alpha Vantage** and **FRED**. Please respect their terms of use.
 - For course/demo purposes.
+- **Nothing here is financial, investment, legal, or tax advice. Do your own research and consult a qualified adviser; investing involves risk.**
