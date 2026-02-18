@@ -1,5 +1,9 @@
 # IS 430 Final Project – Stock Market Analytics (Demo)
 
+**DUE TO HIGH API COST, DATA FETCHING IS NO LONGER AVAILABLE.**
+
+---
+
 A Streamlit app that unifies **Earnings**, **Sector Performance**, and **Macro Data** into a single playbook for any U.S. equity. 
 It fetches (maximum) 15-minute delayed data from **Alpha Vantage** and **FRED**, builds sector‑aware macro tables, and produces an **actionable trade plan**.
 
